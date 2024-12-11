@@ -1,0 +1,41 @@
+﻿@model EUREKA_SOAP_DOTNET_CLIWEB.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="login-cuerpo">
+        <div class="login-container">
+            <div class="login-carta">
+                <img src="~/Images/logo_login.png" class="logo-login"/>
+
+                <h4>Login</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group-width100">
+                    @Html.LabelFor(m => m.Username, new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(m => m.Username, new { @class = "form-control login-card-input" })
+                        @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group-width100">
+
+                    @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                    <div class="col-md-10">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control login-card-input" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group-width100">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Login" class="boton-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

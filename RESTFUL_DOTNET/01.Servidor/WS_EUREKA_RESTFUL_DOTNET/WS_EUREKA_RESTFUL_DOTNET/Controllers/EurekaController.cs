@@ -16,6 +16,7 @@ namespace WS_EUREKA_RESTFUL_DOTNET.Controllers
         {
             var movimientos = _context.Movimientoes
                 .Where(m => m.chr_cuencodigo == cuenta)
+                .OrderByDescending(m => m.int_movinumero)
                 .Select(m => new
                 {
                     Cuenta = m.chr_cuencodigo,
@@ -28,6 +29,7 @@ namespace WS_EUREKA_RESTFUL_DOTNET.Controllers
 
             return Json(movimientos, JsonRequestBehavior.AllowGet);
         }
+
 
         [HttpPost]
         public bool ProcesarMovimiento()

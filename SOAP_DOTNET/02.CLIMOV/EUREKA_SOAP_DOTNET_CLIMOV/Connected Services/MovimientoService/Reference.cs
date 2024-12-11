@@ -234,7 +234,7 @@ namespace MovimientoService
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_IMovimientoService))
             {
-                return new System.ServiceModel.EndpointAddress("http://192.168.18.8:666/MovimientoService.svc");
+                return new System.ServiceModel.EndpointAddress("http://10.40.20.105:666/MovimientoService.svc");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

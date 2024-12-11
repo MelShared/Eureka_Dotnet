@@ -1,0 +1,39 @@
+﻿@model IEnumerable<EUREKA_SOAP_DOTNET_CLIWEB.Models.MovimientoModel>
+
+@{
+    ViewBag.Title = "Movimientos";
+}
+
+<h2>Movimientos</h2>
+<div class="movements-container">
+    <div class="search-bar">
+        @using (Html.BeginForm("Movimientos", "Cuenta", FormMethod.Get))
+        {
+            <input type="text" name="codigoCuenta" id="searchBox" class="form-control" placeholder="Buscar cuenta..." />
+            <button type="submit" class="btn btn-primary">Buscar</button>
+        }
+    </div>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="grid-container movements-list">
+            @foreach (var item in Model)
+            {
+                <div class="card">
+                    <p><strong>Cuenta:</strong> @item.CodigoCuenta</p>
+                    <p><strong>Fecha:</strong> @item.FechaMovimiento</p>
+                    <p><strong>Número Movimiento:</strong> @item.NumeroMovimiento</p>
+                    <p><strong>Empleado:</strong> @item.CodigoEmpleado</p>
+                    <p><strong>Tipo Movimiento:</strong> @item.CodigoTipoMovimiento</p>
+                    <p><strong>Importe:</strong> $@item.ImporteMovimiento</p>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>No se encontraron movimientos para la cuenta especificada.</p>
+    }
+
+    @Html.ActionLink("+", "Transaccion", "Cuenta", new { @class = "floating-button" })
+</div>
