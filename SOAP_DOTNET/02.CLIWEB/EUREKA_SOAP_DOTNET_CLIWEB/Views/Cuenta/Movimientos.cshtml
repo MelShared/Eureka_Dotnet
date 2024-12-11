@@ -5,74 +5,35 @@
 }
 
 <h2>Movimientos</h2>
-
-<div class="search-bar">
-    @using (Html.BeginForm("Movimientos", "Cuenta", FormMethod.Get))
-    {
-        <input type="text" name="codigoCuenta" id="searchBox" class="form-control" placeholder="Buscar cuenta..." />
-        <button type="submit" class="btn btn-primary">Buscar</button>
-    }
-</div>
-
-@if (Model != null && Model.Any())
-{
-    <div class="grid-container">
-        @foreach (var item in Model)
+<div class="movements-container">
+    <div class="search-bar">
+        @using (Html.BeginForm("Movimientos", "Cuenta", FormMethod.Get))
         {
-            <div class="card">
-                <p><strong>Cuenta:</strong> @item.CodigoCuenta</p>
-                <p><strong>Fecha:</strong> @item.FechaMovimiento</p>
-                <p><strong>Número Movimiento:</strong> @item.NumeroMovimiento</p>
-                <p><strong>Empleado:</strong> @item.CodigoEmpleado</p>
-                <p><strong>Tipo Movimiento:</strong> @item.CodigoTipoMovimiento</p>
-                <p><strong>Importe:</strong> $@item.ImporteMovimiento</p>
-            </div>
+            <input type="text" name="codigoCuenta" id="searchBox" class="form-control" placeholder="Buscar cuenta..." />
+            <button type="submit" class="btn btn-primary">Buscar</button>
         }
     </div>
-}
-else
-{
-    <p>No se encontraron movimientos para la cuenta especificada.</p>
-}
 
-<style>
-    .search-bar {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-        justify-content: center;
+    @if (Model != null && Model.Any())
+    {
+        <div class="grid-container movements-list">
+            @foreach (var item in Model)
+            {
+                <div class="card">
+                    <p><strong>Cuenta:</strong> @item.CodigoCuenta</p>
+                    <p><strong>Fecha:</strong> @item.FechaMovimiento</p>
+                    <p><strong>Número Movimiento:</strong> @item.NumeroMovimiento</p>
+                    <p><strong>Empleado:</strong> @item.CodigoEmpleado</p>
+                    <p><strong>Tipo Movimiento:</strong> @item.CodigoTipoMovimiento</p>
+                    <p><strong>Importe:</strong> $@item.ImporteMovimiento</p>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>No se encontraron movimientos para la cuenta especificada.</p>
     }
 
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-        padding: 20px;
-    }
-
-    .card {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-        .card p {
-            margin: 5px 0;
-        }
-
-    h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(45deg, #9c27b0, #00bcd4);
-        color: #333;
-        padding: 20px;
-    }
-</style>
-
-@Html.ActionLink("Procesar Movimiento", "Transaccion", "Cuenta", new { @class = "btn btn-primary" })
+    @Html.ActionLink("+", "Transaccion", "Cuenta", new { @class = "floating-button" })
+</div>

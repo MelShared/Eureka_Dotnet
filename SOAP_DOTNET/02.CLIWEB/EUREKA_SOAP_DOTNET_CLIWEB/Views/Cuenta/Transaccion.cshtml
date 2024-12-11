@@ -4,55 +4,63 @@
     ViewBag.Title = "Transacción";
 }
 
-<h2>Transacción</h2>
+<div class="login-cuerpo">
+    <div class="login-container">
+        <div class="login-carta">
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div class="form-horizontal">
-        <h4>Transacción</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(m => m.CodigoCuenta, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.CodigoCuenta, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.CodigoCuenta, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.ValorMovimiento, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.ValorMovimiento, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.ValorMovimiento, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <img src="~/Images/oozma.png" class="logo-login"/>
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.Tipo, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Tipo, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Tipo, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.CuentaDest, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.CuentaDest, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.CuentaDest, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Realizar Transacción" class="btn btn-default" />
-            </div>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="grid-centrao">
+                    <h4>Transacción</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group-width100">
+                        @Html.LabelFor(m => m.CodigoCuenta, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.CodigoCuenta, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.CodigoCuenta, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group-width100">
+                        @Html.LabelFor(m => m.ValorMovimiento, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.ValorMovimiento, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.ValorMovimiento, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group-width100">
+                        @Html.LabelFor(m => m.Tipo, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Tipo, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Tipo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group-width100">
+                        @Html.LabelFor(m => m.CuentaDest, new { @class = "control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.CuentaDest, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.CuentaDest, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group-width100">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Realizar Transacción" class="boton-primary" />
+                            <input value="Regresar" class="boton-secondary" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-info">
+                    @ViewBag.Message
+                </div>
+            }
         </div>
     </div>
-}
-
-@if (ViewBag.Message != null)
-{
-    <div class="alert alert-info">
-        @ViewBag.Message
-    </div>
-}
+</div>
