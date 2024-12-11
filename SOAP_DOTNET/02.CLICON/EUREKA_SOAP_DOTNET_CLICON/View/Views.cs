@@ -34,7 +34,7 @@ namespace EUREKABANK_SOAP_DOTNET_CON.View
 
         public string GetAccountCode(string transactionType)
         {
-            Console.Write($"Enter the account code for {transactionType}: ");
+            Console.Write($"Ingrese la cuenta: {transactionType}: ");
             return Console.ReadLine();
         }
 
@@ -42,7 +42,7 @@ namespace EUREKABANK_SOAP_DOTNET_CON.View
         {
             while (true)
             {
-                Console.Write($"Enter {transactionType} amount: ");
+                Console.Write($"Ingrese {transactionType} el monto: ");
                 if (double.TryParse(Console.ReadLine(), out double amount) && amount > 0)
                 {
                     return amount;
@@ -53,15 +53,15 @@ namespace EUREKABANK_SOAP_DOTNET_CON.View
 
         public string GetDestinationAccount()
         {
-            Console.Write("Enter destination account code: ");
+            Console.Write("Ingrese la cuenta destino: ");
             return Console.ReadLine();
         }
 
         public void DisplayMovements(ServiceReference1.CustomMovimientoModel[] movements)
         {
-            Console.WriteLine("\n===== Account Movements =====");
+            Console.WriteLine("\n===== Movimientos de Cuenta =====");
             Console.WriteLine(" {0,-15} {1,-15} {2,-15} {3,-15} {4,-15}",
-                "Movement #", "Date", "Employee", "Type", "Amount");
+                "# Movimiento", "Fecha", "Empleado", "Tipo", "Monto");
             Console.WriteLine(new string('-', 90));
             foreach (var movement in movements)
             {
@@ -69,19 +69,19 @@ namespace EUREKABANK_SOAP_DOTNET_CON.View
                 switch (movement.CodigoTipoMovimiento)
                 {
                     case "003":
-                        typeText = "DEPOSIT";
+                        typeText = "DEPOSITO";
                         break;
                     case "001":
-                        typeText = "ACCOUNT CREATION";
+                        typeText = "CREACION CUENTA";
                         break;
                     case "004":
-                        typeText = "WITHDRAWAL";
+                        typeText = "RETIRO";
                         break;
                     case "008":
-                        typeText = "OUTGOING TRANSFER";
+                        typeText = "TRA ING";
                         break;
                     case "009":
-                        typeText = "INCOMING TRANSFER";
+                        typeText = "TRA SAL";
                         break;
                     default:
                         typeText = movement.CodigoTipoMovimiento;

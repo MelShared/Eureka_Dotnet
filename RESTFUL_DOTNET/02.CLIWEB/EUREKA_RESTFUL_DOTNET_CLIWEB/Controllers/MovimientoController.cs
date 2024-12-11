@@ -21,7 +21,7 @@ namespace EUREKA_RESTFUL_DOTNET_CLIWEB.Controllers
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:667/");
+                client.BaseAddress = new Uri("http://10.40.20.105:667/");
                 var response = await client.GetAsync($"Eureka/LeerMovimientos?cuenta={cuenta}");
                 if (response.IsSuccessStatusCode)
                 {
@@ -49,7 +49,7 @@ namespace EUREKA_RESTFUL_DOTNET_CLIWEB.Controllers
             {
                 using (var client = new HttpClient())
                 {
-                    client.BaseAddress = new Uri("http://localhost:667/");
+                    client.BaseAddress = new Uri("http://10.40.20.105:667/");
                     var response = await client.PostAsJsonAsync("Eureka/ProcesarMovimiento", model);
 
                     if (response.IsSuccessStatusCode)

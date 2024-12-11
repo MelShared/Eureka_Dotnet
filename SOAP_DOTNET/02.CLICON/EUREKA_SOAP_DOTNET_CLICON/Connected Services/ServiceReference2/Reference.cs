@@ -98,7 +98,7 @@ namespace ServiceReference2
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_ILoginService))
             {
-                return new System.ServiceModel.EndpointAddress("http://localhost:57064/LoginService.svc");
+                return new System.ServiceModel.EndpointAddress("http://10.40.20.105:666/LoginService.svc");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }

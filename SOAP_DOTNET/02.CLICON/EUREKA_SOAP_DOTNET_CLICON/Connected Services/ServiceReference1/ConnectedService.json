@@ -1,7 +1,7 @@
 {
   "ExtendedData": {
     "inputs": [
-      "http://localhost:57064/MovimientoService.svc"
+      "http://10.40.20.105:666/MovimientoService.svc"
     ],
     "collectionTypes": [
       "System.Array",

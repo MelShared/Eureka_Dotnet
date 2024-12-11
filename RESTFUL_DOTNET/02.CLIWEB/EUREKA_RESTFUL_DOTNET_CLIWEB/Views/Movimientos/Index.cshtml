@@ -4,75 +4,77 @@
     ViewBag.Title = "Movimientos";
 }
 
-<h2>Movimientos</h2>
 
-<div class="search-bar">
-    @using (Html.BeginForm("Index", "Movimientos", FormMethod.Get))
-    {
-        <input type="text" name="cuenta" id="searchBox" class="form-control" placeholder="Buscar cuenta..." />
-        <button type="submit" class="btn btn-primary">Buscar</button>
-    }
-</div>
-
-@if (Model != null && Model.Any())
-{
-    <div class="grid-container">
-        @foreach (var item in Model)
+<div class="movements-container">
+    <div class="search-bar">
+        @using (Html.BeginForm("Index", "Movimientos", FormMethod.Get))
         {
-            <div class="card">
-                <p><strong>Cuenta:</strong> @item.Cuenta</p>
-                <p><strong>Fecha:</strong> @item.Fecha</p>
-                <p><strong>Número Movimiento:</strong> @item.NroMov</p>
-                <p><strong>Tipo:</strong> @item.Tipo</p>
-                <p><strong>Acción:</strong> @item.Accion</p>
-                <p><strong>Importe:</strong> $@item.Importe</p>
-            </div>
+            <input type="text" name="cuenta" id="searchBox" class="form-control" placeholder="Buscar cuenta..." />
+            <button type="submit" class="btn btn-primary">Buscar</button>
         }
     </div>
-}
-else
-{
-    <p>No se encontraron movimientos para la cuenta especificada.</p>
-}
 
-<style>
-    .search-bar {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-        justify-content: center;
+    @if (Model != null && Model.Any())
+    {
+        <div class="grid-container  movements-list">
+            @foreach (var item in Model)
+            {
+                <div class="card">
+                    <p><strong>Cuenta:</strong> @item.Cuenta</p>
+                    <p><strong>Fecha:</strong> @item.Fecha</p>
+                    <p><strong>Número Movimiento:</strong> @item.NroMov</p>
+                    <p><strong>Tipo:</strong> @item.Tipo</p>
+                    <p><strong>Acción:</strong> @item.Accion</p>
+                    <p><strong>Importe:</strong> $@item.Importe</p>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>No se encontraron movimientos para la cuenta especificada.</p>
     }
 
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        gap: 20px;
-        padding: 20px;
-    }
 
-    .card {
-        background-color: #fff;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
+    @*<style>
+            .search-bar {
+                display: flex;
+                gap: 10px;
+                margin-bottom: 20px;
+                justify-content: center;
+            }
 
-        .card p {
-            margin: 5px 0;
-        }
+            .grid-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 20px;
+                padding: 20px;
+            }
 
-    h2 {
-        text-align: center;
-        margin-bottom: 20px;
-    }
+            .card {
+                background-color: #fff;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                padding: 15px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
 
-    body {
-        font-family: Arial, sans-serif;
-        background: linear-gradient(45deg, #9c27b0, #00bcd4);
-        color: #333;
-        padding: 20px;
-    }
-</style>
+                .card p {
+                    margin: 5px 0;
+                }
 
-@Html.ActionLink("Procesar Movimiento", "Crear", "Movimientos", new { @class = "btn btn-primary" })
+            h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            body {
+                font-family: Arial, sans-serif;
+                background: linear-gradient(45deg, #9c27b0, #00bcd4);
+                color: #333;
+                padding: 20px;
+            }
+        </style>*@
+
+    @Html.ActionLink("+", "Crear", "Movimientos", new { @class = "floating-button" })
+</div>
