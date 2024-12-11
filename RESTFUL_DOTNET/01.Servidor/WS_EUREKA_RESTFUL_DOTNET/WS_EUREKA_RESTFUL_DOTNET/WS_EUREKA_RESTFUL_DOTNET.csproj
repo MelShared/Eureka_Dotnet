@@ -178,6 +178,7 @@
     <Compile Include="Models\Movimiento.cs">
       <DependentUpon>EurekabankEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MovimientoRequest.cs" />
     <Compile Include="Models\Parametro.cs">
       <DependentUpon>EurekabankEntities.tt</DependentUpon>
     </Compile>
