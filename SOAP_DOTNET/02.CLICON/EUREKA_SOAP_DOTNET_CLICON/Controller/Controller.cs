@@ -58,10 +58,10 @@ namespace EUREKABANK_SOAP_DOTNET_CON.Controller
                             await CheckMovements();
                             break;
                         case "5": // Exit
-                            _view.DisplayMessage("Thank you for using our banking system. Goodbye!");
+                            _view.DisplayMessage("GRACIAS!");
                             return;
                         default:
-                            _view.DisplayMessage("Invalid option. Please try again.", true);
+                            _view.DisplayMessage("Opción inválida.", true);
                             break;
                     }
                 }
@@ -95,18 +95,18 @@ namespace EUREKABANK_SOAP_DOTNET_CON.Controller
 
             if (success)
             {
-                _view.DisplayMessage($"{char.ToUpper(transactionType[0]) + transactionType.Substring(1)} successful!");
+                _view.DisplayMessage($"{char.ToUpper(transactionType[0]) + transactionType.Substring(1)} Operación exitosa!");
             }
             else
             {
-                _view.DisplayMessage("Transaction failed.", true);
+                _view.DisplayMessage("Tranasacción fallida.", true);
             }
         }
 
         private async Task CheckMovements()
         {
             // Get the account code for checking movements
-            string accountCode = _view.GetAccountCode("checking movements");
+            string accountCode = _view.GetAccountCode("Revisión de cuentas");
 
             // Retrieve and display movements for the specified account
             var movements = await _service.GetAccountMovementsAsync(accountCode);

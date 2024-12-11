@@ -7,6 +7,15 @@ using EUREKA_SOAP_DOTNET_CLIWEB.Models;
 
 public class CuentaController : Controller
 {
+    private static readonly Dictionary<string, string> TipoMovimientoNombres = new Dictionary<string, string>
+    {
+        { "003", "Deposito" },
+        { "004", "Retiro" },
+        { "008", "Tran Ing" },
+        { "009", "Tran Sal" },
+        { "001", "Creacion" }
+    };
+
     public ActionResult Movimientos(string codigoCuenta)
     {
         if (string.IsNullOrEmpty(codigoCuenta))
@@ -24,7 +33,7 @@ public class CuentaController : Controller
             FechaMovimiento = m.FechaMovimiento,
             NumeroMovimiento = m.NumeroMovimiento,
             CodigoEmpleado = m.CodigoEmpleado,
-            CodigoTipoMovimiento = m.CodigoTipoMovimiento,
+            CodigoTipoMovimiento = TipoMovimientoNombres.ContainsKey(m.CodigoTipoMovimiento) ? TipoMovimientoNombres[m.CodigoTipoMovimiento] : m.CodigoTipoMovimiento,
             ImporteMovimiento = m.ImporteMovimiento
         }).ToList();
 

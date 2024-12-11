@@ -12,7 +12,7 @@ namespace RestClient
 
         static async Task Main(string[] args)
         {
-            string baseUrl = "http://localhost:667"; // Reemplaza con la URL base de tu API
+            string baseUrl = "http://10.40.20.105:667"; // Reemplaza con la URL base de tu API
 
             Console.WriteLine("Bienvenido al cliente de consola para la API RESTful");
 
@@ -24,9 +24,11 @@ namespace RestClient
 
             while (true)
             {
-                Console.WriteLine("1. Procesar Movimiento");
-                Console.WriteLine("2. Leer Movimientos");
-                Console.WriteLine("3. Salir");
+                Console.WriteLine("1. Depósito");
+                Console.WriteLine("2. Retiro");
+                Console.WriteLine("3. Transferencia");
+                Console.WriteLine("4. Ver Movimientos");
+                Console.WriteLine("5. Salir");
                 Console.WriteLine("Seleccione una opción:");
 
                 var option = Console.ReadLine();
@@ -34,12 +36,18 @@ namespace RestClient
                 switch (option)
                 {
                     case "1":
-                        await ProcesarMovimientoMenu(baseUrl);
+                        await ProcesarMovimientoMenu(baseUrl, "DEP");
                         break;
                     case "2":
-                        await LeerMovimientosMenu(baseUrl);
+                        await ProcesarMovimientoMenu(baseUrl, "RET");
                         break;
                     case "3":
+                        await ProcesarMovimientoMenu(baseUrl, "TRA");
+                        break;
+                    case "4":
+                        await LeerMovimientosMenu(baseUrl);
+                        break;
+                    case "5":
                         return;
                     default:
                         Console.WriteLine("Opción no válida");
@@ -127,31 +135,8 @@ namespace RestClient
             }
         }
 
-        static async Task ProcesarMovimientoMenu(string baseUrl)
+        static async Task ProcesarMovimientoMenu(string baseUrl, string tipo)
         {
-            Console.WriteLine("Seleccione el tipo de movimiento:");
-            Console.WriteLine("1. Depósito");
-            Console.WriteLine("2. Retiro");
-            Console.WriteLine("3. Transferencia");
-
-            var tipoMovimiento = Console.ReadLine();
-            string tipo = "";
-            switch (tipoMovimiento)
-            {
-                case "1":
-                    tipo = "DEP";
-                    break;
-                case "2":
-                    tipo = "RET";
-                    break;
-                case "3":
-                    tipo = "TRA";
-                    break;
-                default:
-                    Console.WriteLine("Opción no válida");
-                    return;
-            }
-
             Console.WriteLine("Ingrese el código de la cuenta:");
             string codigoCuenta = Console.ReadLine();
             Console.WriteLine("Ingrese el valor del movimiento:");

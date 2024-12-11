@@ -4,48 +4,70 @@
     ViewBag.Title = "Crear Movimiento";
 }
 
-<h2>Crear Movimiento</h2>
+<div class="login-cuerpo">
+    <div class="login-container">
+        <div class="login-carta">
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <div class="form-horizontal">
-        <h4>Movimiento</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(m => m.CodigoCuenta, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.CodigoCuenta, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.CodigoCuenta, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.Tipo, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Tipo, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.Tipo, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <img src="~/Images/oozma.png" class="logo-login" />
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <div class="grid-centrao">
+                    <h4>Movimiento</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group-width100">
+                        @Html.LabelFor(m => m.CodigoCuenta, new { @class = "control-label " })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.CodigoCuenta, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.CodigoCuenta, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group-width100">
+                        @Html.LabelFor(m => m.Tipo, new { @class = "control-label " })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(m => m.Tipo,
+                                new SelectList(new[]
+                                {
+                                    new { Value = "DEP", Text = "Depósito" },
+                                    new { Value = "RET", Text = "Retiro" },
+                                    new { Value = "TRAN", Text = "Transacción" }
+                                }, "Value", "Text"),
+                                "Seleccione un tipo",
+                                new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Tipo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(m => m.ValorMovimiento, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.ValorMovimiento, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.ValorMovimiento, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.CuentaDest, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.CuentaDest, new { @class = "form-control" })
-                @Html.ValidationMessageFor(m => m.CuentaDest, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Crear" class="btn btn-default" />
-            </div>
+                    <div class="form-group-width100">
+                        @Html.LabelFor(m => m.ValorMovimiento, new { @class = "control-label " })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.ValorMovimiento, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.ValorMovimiento, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group-width100">
+                        @Html.LabelFor(m => m.CuentaDest, new { @class = "control-label " })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.CuentaDest, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.CuentaDest, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group-width100">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Realizar Transacción" class="boton-primary" />
+                            @Html.ActionLink("Regresar", "Index", "Movimientos", null, new { @class = "boton-secondary" })
+                        </div>
+                    </div>
+                </div>
+            }
+
+            @if (ViewBag.Message != null)
+            {
+                <div class="alert alert-info">
+                    @ViewBag.Message
+                </div>
+            }
         </div>
     </div>
-}
+</div>

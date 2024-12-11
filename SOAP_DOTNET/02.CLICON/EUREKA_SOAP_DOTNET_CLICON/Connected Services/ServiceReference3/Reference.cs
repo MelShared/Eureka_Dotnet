@@ -98,7 +98,7 @@ namespace ServiceReference3
         {
             if ((endpointConfiguration == EndpointConfiguration.BasicHttpBinding_ICuentaService))
             {
-                return new System.ServiceModel.EndpointAddress("http://localhost:57064/CuentaService.svc");
+                return new System.ServiceModel.EndpointAddress("http://10.40.20.105:666/CuentaService.svc");
             }
             throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
         }
