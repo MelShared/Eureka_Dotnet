@@ -12,15 +12,28 @@ namespace EUREKA_RESTFUL_DOTNET_CLIWEB.Controllers
 {
     public class MovimientosController : Controller
     {
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(string cuenta)
         {
+            if (string.IsNullOrEmpty(cuenta))
+            {
+                return View(new List<MovimientoViewModel>());
+            }
+
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("http://localhost:667/");
-                var response = await client.GetAsync("Eureka/LeerMovimientos?cuenta=00100001");
-                var result = await response.Content.ReadAsStringAsync();
-                var movimientos = JsonConvert.DeserializeObject<List<MovimientoViewModel>>(result);
-                return View(movimientos);
+                var response = await client.GetAsync($"Eureka/LeerMovimientos?cuenta={cuenta}");
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsStringAsync();
+                    var movimientos = JsonConvert.DeserializeObject<List<MovimientoViewModel>>(result);
+                    return View(movimientos);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Error retrieving data from server.");
+                    return View(new List<MovimientoViewModel>());
+                }
             }
         }
 
