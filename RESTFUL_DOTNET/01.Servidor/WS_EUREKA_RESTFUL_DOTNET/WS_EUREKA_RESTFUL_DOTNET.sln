@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35506.116 d17.12
+VisualStudioVersion = 17.12.35506.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WS_EUREKA_RESTFUL_DOTNET", "WS_EUREKA_RESTFUL_DOTNET\WS_EUREKA_RESTFUL_DOTNET.csproj", "{C41B4481-88D4-4B89-82A4-8B980BD19980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EUREKA_RESTFUL_DOTNET_CLICON", "..\..\02.CLICON\EUREKA_RESTFUL_DOTNET_CLICON\EUREKA_RESTFUL_DOTNET_CLICON.csproj", "{6D22C9B0-B5D4-4F38-A218-5914CC98376D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C41B4481-88D4-4B89-82A4-8B980BD19980}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C41B4481-88D4-4B89-82A4-8B980BD19980}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C41B4481-88D4-4B89-82A4-8B980BD19980}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D22C9B0-B5D4-4F38-A218-5914CC98376D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D22C9B0-B5D4-4F38-A218-5914CC98376D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D22C9B0-B5D4-4F38-A218-5914CC98376D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D22C9B0-B5D4-4F38-A218-5914CC98376D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
