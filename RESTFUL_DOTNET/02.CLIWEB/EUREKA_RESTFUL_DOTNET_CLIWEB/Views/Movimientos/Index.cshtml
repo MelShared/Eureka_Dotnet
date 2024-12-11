@@ -1,0 +1,36 @@
+﻿@model IEnumerable<EUREKA_RESTFUL_DOTNET_CLIWEB.Models.MovimientoViewModel>
+
+@{
+    ViewBag.Title = "Movimientos";
+}
+
+<h2>Movimientos</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Cuenta</th>
+            <th>NroMov</th>
+            <th>Fecha</th>
+            <th>Tipo</th>
+            <th>Accion</th>
+            <th>Importe</th>
+       
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Cuenta</td>
+                <td>@item.NroMov</td>
+                <td>@item.Fecha</td>
+                <td>@item.Tipo</td>
+                <td>@item.Accion</td>
+                <td>@item.Importe</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Procesar Movimiento", "Crear", "Movimientos", new { @class = "btn btn-primary" })

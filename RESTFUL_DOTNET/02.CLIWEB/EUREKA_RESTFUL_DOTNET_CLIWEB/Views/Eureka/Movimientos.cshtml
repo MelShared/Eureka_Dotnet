@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Movimientos";
+}
+
+<h2>Movimientos</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Cuenta</th>
+            <th>NroMov</th>
+            <th>Fecha</th>
+            <th>Tipo</th>
+            <th>Accion</th>
+            <th>Importe</th>
+        </tr>
+    </thead>
+    <tbody id="movimientosTableBody">
+    </tbody>
+</table>
+
+<script>
+    fetch('/Eureka/LeerMovimientos?cuenta=123456')
+        .then(response => response.json())
+        .then(data => {
+            const tableBody = document.getElementById('movimientosTableBody');
+            data.forEach(movimiento => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${movimiento.Cuenta}</td>
+                    <td>${movimiento.NroMov}</td>
+                    <td>${new Date(movimiento.Fecha).toLocaleDateString()}</td>
+                    <td>${movimiento.Tipo}</td>
+                    <td>${movimiento.Accion}</td>
+                    <td>${movimiento.Importe}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        });
+</script>

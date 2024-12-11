@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Procesar Movimiento";
+}
+
+<h2>Procesar Movimiento</h2>
+
+<form method="post" action="/Eureka/ProcesarMovimiento">
+    <div>
+        <label for="CodigoCuenta">Código de Cuenta:</label>
+        <input type="text" id="CodigoCuenta" name="CodigoCuenta" required />
+    </div>
+    <div>
+        <label for="Tipo">Tipo de Movimiento:</label>
+        <select id="Tipo" name="Tipo" required>
+            <option value="DEP">Depósito</option>
+            <option value="RET">Retiro</option>
+            <option value="TRA">Transferencia</option>
+        </select>
+    </div>
+    <div>
+        <label for="ValorMovimiento">Valor del Movimiento:</label>
+        <input type="number" id="ValorMovimiento" name="ValorMovimiento" required />
+    </div>
+    <div id="cuentaDestDiv" style="display: none;">
+        <label for="CuentaDest">Cuenta Destino:</label>
+        <input type="text" id="CuentaDest" name="CuentaDest" />
+    </div>
+    <div>
+        <button type="submit">Procesar</button>
+    </div>
+</form>
+
+<script>
+    document.getElementById('Tipo').addEventListener('change', function() {
+        const cuentaDestDiv = document.getElementById('cuentaDestDiv');
+        if (this.value === 'TRA') {
+            cuentaDestDiv.style.display = 'block';
+        } else {
+            cuentaDestDiv.style.display = 'none';
+        }
+    });
+</script>

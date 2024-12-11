@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Movimientos";
+}
+
+<h2>Movimientos</h2>
+
+<form id="movimientosForm">
+    <label for="cuenta">Cuenta:</label>
+    <input type="text" id="cuenta" name="cuenta" required />
+    <br />
+    <button type="submit">Consultar Movimientos</button>
+</form>
+
+<div id="movimientosResult"></div>
+
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#movimientosForm').submit(function (event) {
+            event.preventDefault();
+            var cuenta = $('#cuenta').val();
+
+            $.ajax({
+                url: 'http://localhost:667/Eureka/LeerMovimientos',
+                type: 'GET',
+                data: { cuenta: cuenta },
+                success: function (response) {
+                    var resultHtml = '<table><tr><th>Cuenta</th><th>NroMov</th><th>Fecha</th><th>Tipo</th><th>Accion</th><th>Importe</th></tr>';
+                    $.each(response, function (index, movimiento) {
+                        resultHtml += '<tr><td>' + movimiento.Cuenta + '</td><td>' + movimiento.NroMov + '</td><td>' + movimiento.Fecha + '</td><td>' + movimiento.Tipo + '</td><td>' + movimiento.Accion + '</td><td>' + movimiento.Importe + '</td></tr>';
+                    });
+                    resultHtml += '</table>';
+                    $('#movimientosResult').html(resultHtml);
+                },
+                error: function () {
+                    alert('Error fetching movimientos');
+                }
+            });
+        });
+    });
+</script>

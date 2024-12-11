@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+<form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required />
+    <br />
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required />
+    <br />
+    <button type="submit">Login</button>
+</form>
+
+<script src="~/Scripts/jquery-3.7.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#loginForm').submit(function (event) {
+            event.preventDefault();
+            var loginData = {
+                Username: $('#username').val(),
+                Password: $('#password').val()
+            };
+
+            $.ajax({
+                url: 'http://localhost:667/Login/Login',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(loginData),
+                success: function (response) {
+                    if (response.success) {
+                        alert('Login successful');
+                    } else {
+                        alert('Login failed: ' + response.message);
+                    }
+                },
+                error: function () {
+                    alert('Error during login');
+                }
+            });
+        });
+    });
+</script>
