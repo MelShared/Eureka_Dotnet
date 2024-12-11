@@ -90,8 +90,8 @@ public partial class MovimientoView : ContentPage
 
             var tipoMovimiento = movimiento.CodigoTipoMovimiento switch
             {
-                "004" => "Depósito",
-                "003" => "Retiro",
+                "003" => "Depósito",
+                "004" => "Retiro",
                 "009" => "Transferencia Ida",
                 "008" => "Transferencia Vuelta",
                 _ => "Desconocido"

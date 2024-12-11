@@ -1,7 +1,7 @@
 {
   "ExtendedData": {
     "inputs": [
-      "http://192.168.18.8:666/CuentaService.svc?wsdl"
+        "http://10.40.20.105:666/CuentaService.svc?wsdl"
     ],
     "collectionTypes": [
       "System.Array",
