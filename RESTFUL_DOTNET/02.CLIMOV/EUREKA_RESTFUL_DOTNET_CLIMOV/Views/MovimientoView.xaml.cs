@@ -1,15 +1,14 @@
-using EUREKA_SOAP_DOTNET_CLIMOV.Controller;
-using EUREKA_SOAP_DOTNET_CLIMOV;
-
-namespace EUREKA_SOAP_DOTNET_CLIMOV.Views;
+using EUREKA_RESTFUL_DOTNET_CLIMOV.Controller;
+using EUREKA_RESTFUL_DOTNET_CLIMOV;
+namespace EUREKA_RESTFUL_DOTNET_CLIMOV.Views;
 
 public partial class MovimientoView : ContentPage
 {
-    private MovimientoController _movimientoController;
+	private MovimientosController movimientosController;
     public MovimientoView()
 	{
 		InitializeComponent();
-        _movimientoController = new MovimientoController();
+        movimientosController = new MovimientosController();
     }
 
     private async Task ShowCustomAlert(string title, string message)
@@ -35,7 +34,7 @@ public partial class MovimientoView : ContentPage
         MovimientosContainer.Children.Clear();
         NoMovimientosLabel.IsVisible = false;
 
-        var movimientos = await _movimientoController.ObtenerMovimientosPorCuenta(numeroCuenta);
+        var movimientos = await movimientosController.LoadMovimientosAsync(numeroCuenta);
 
         if (movimientos == null || !movimientos.Any())
         {
@@ -60,7 +59,7 @@ public partial class MovimientoView : ContentPage
 
             leftSection.Children.Add(new Label
             {
-                Text = $"Cuenta: {movimiento.CodigoCuenta}",
+                Text = $"Cuenta: {movimiento.Cuenta}",
                 FontFamily = "FredokaBold",
                 TextColor = Colors.Black,
                 FontSize = 14
@@ -68,7 +67,7 @@ public partial class MovimientoView : ContentPage
 
             leftSection.Children.Add(new Label
             {
-                Text = $"Fecha: {movimiento.FechaMovimiento:dd/MM/yyyy}",
+                Text = $"Fecha: {movimiento.Fecha:dd/MM/yyyy}",
                 FontFamily = "FredokaRegular",
                 TextColor = Color.FromArgb("#4E4D4D"),
                 FontSize = 12
@@ -76,7 +75,7 @@ public partial class MovimientoView : ContentPage
 
             leftSection.Children.Add(new Label
             {
-                Text = $"Número Movimiento: {movimiento.NumeroMovimiento}",
+                Text = $"Número Movimiento: {movimiento.NroMov}",
                 FontFamily = "FredokaRegular",
                 TextColor = Color.FromArgb("#4E4D4D"),
                 FontSize = 12
@@ -88,27 +87,9 @@ public partial class MovimientoView : ContentPage
                 HorizontalOptions = LayoutOptions.EndAndExpand
             };
 
-            var tipoMovimiento = movimiento.CodigoTipoMovimiento switch
-            {
-                "003" => "Depósito",
-                "004" => "Retiro",
-                "009" => "Transferencia Ida",
-                "008" => "Transferencia Vuelta",
-                _ => "Desconocido"
-            };
-
             rightSection.Children.Add(new Label
             {
-                Text = $"Tipo: {tipoMovimiento}",
-                FontFamily = "FredokaRegular",
-                TextColor = Color.FromArgb("#4E4D4D"),
-                FontSize = 12
-            });
-
-            string accion = movimiento.ImporteMovimiento >= 0 ? "Crédito" : "Débito";
-            rightSection.Children.Add(new Label
-            {
-                Text = $"Acción: {accion}",
+                Text = $"Tipo: {movimiento.Tipo}",
                 FontFamily = "FredokaRegular",
                 TextColor = Color.FromArgb("#4E4D4D"),
                 FontSize = 12
@@ -116,7 +97,15 @@ public partial class MovimientoView : ContentPage
 
             rightSection.Children.Add(new Label
             {
-                Text = $"Importe: ${Math.Abs(movimiento.ImporteMovimiento):F2}",
+                Text = $"Acción: {movimiento.Accion}",
+                FontFamily = "FredokaRegular",
+                TextColor = Color.FromArgb("#4E4D4D"),
+                FontSize = 12
+            });
+
+            rightSection.Children.Add(new Label
+            {
+                Text = $"Importe: ${Math.Abs(movimiento.Importe):F2}",
                 FontFamily = "FredokaBold",
                 TextColor = Colors.Black,
                 FontSize = 14
