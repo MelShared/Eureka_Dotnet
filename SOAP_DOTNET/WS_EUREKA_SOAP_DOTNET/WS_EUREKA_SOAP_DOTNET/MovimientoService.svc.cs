@@ -16,7 +16,7 @@ namespace WS_EUREKA_SOAP_DOTNET
         {
             try
             {
-                using (eurekabankEntities bd = new eurekabankEntities())
+                using (eurekabankEntities1 bd = new eurekabankEntities1())
                 {
                     var query = from m in bd.Movimientoes
                                 where m.chr_cuencodigo == codigoCuenta
@@ -42,7 +42,7 @@ namespace WS_EUREKA_SOAP_DOTNET
 
         public void RegistrarMovimiento(CustomMovimientoModel movimiento)
         {
-            using (eurekabankEntities bd = new eurekabankEntities())
+            using (eurekabankEntities1 bd = new eurekabankEntities1())
             {
                 var nuevoMovimiento = new Movimiento
                 {

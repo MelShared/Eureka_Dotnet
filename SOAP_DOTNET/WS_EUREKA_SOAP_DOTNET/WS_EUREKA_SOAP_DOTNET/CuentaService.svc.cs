@@ -111,7 +111,7 @@ namespace WS_EUREKA_SOAP_DOTNET
 
         public bool ActualizarSaldoCuenta(string codigoCuenta, decimal valorMovimiento)
         {
-            using (var bd = new eurekabankEntities())
+            using (var bd = new eurekabankEntities1())
             {
                 var cuenta = bd.Cuentas.SingleOrDefault(c => c.chr_cuencodigo == codigoCuenta);
 
@@ -138,7 +138,7 @@ namespace WS_EUREKA_SOAP_DOTNET
 
         public Cuenta ObtenerCuentaPorCodigo(string codigoCuenta)
         {
-            using (var bd = new eurekabankEntities())
+            using (var bd = new eurekabankEntities1())
             {
                 // Directly return the found account, no need for manual mapping
                 return bd.Cuentas.SingleOrDefault(c => c.chr_cuencodigo == codigoCuenta);

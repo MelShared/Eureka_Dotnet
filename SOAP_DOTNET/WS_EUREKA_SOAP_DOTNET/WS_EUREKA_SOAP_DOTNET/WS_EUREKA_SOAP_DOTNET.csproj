@@ -80,34 +80,44 @@
       <DependentUpon>EurekabankEntities.edmx</DependentUpon>
       <LastGenOutput>EurekabankEntities.cs</LastGenOutput>
     </Content>
+    <Content Include="EurekaCloud.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EurekaCloud.edmx</DependentUpon>
+      <LastGenOutput>EurekaCloud.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EurekaCloud.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EurekaCloud.edmx</DependentUpon>
+      <LastGenOutput>EurekaCloud.cs</LastGenOutput>
+    </Content>
     <Content Include="LoginService.svc" />
     <Content Include="MovimientoService.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Asignado.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="CargoMantenimiento.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Cliente.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Contador.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="CostoMovimiento.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Cuenta.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="CuentaService.svc.cs">
       <DependentUpon>CuentaService.svc</DependentUpon>
     </Compile>
     <Compile Include="Empleado.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="EurekabankEntities.Context.cs">
       <AutoGen>True</AutoGen>
@@ -124,34 +134,49 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EurekabankEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="EurekaCloud.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EurekaCloud.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EurekaCloud.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EurekaCloud.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EurekaCloud.edmx</DependentUpon>
+    </Compile>
     <Compile Include="ICuentaService.cs" />
     <Compile Include="ILoginService.cs" />
     <Compile Include="IMovimientoService.cs" />
     <Compile Include="InteresMensual.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="LoginService.svc.cs">
       <DependentUpon>LoginService.svc</DependentUpon>
     </Compile>
     <Compile Include="Models\CustomMovimientoModel.cs" />
     <Compile Include="Moneda.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Movimiento.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="MovimientoService.svc.cs">
       <DependentUpon>MovimientoService.svc</DependentUpon>
     </Compile>
     <Compile Include="Parametro.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sucursal.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="TipoMovimiento.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +189,13 @@
     </EntityDeploy>
     <Content Include="EurekabankEntities.edmx.diagram">
       <DependentUpon>EurekabankEntities.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="EurekaCloud.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EurekaCloud.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="EurekaCloud.edmx.diagram">
+      <DependentUpon>EurekaCloud.edmx</DependentUpon>
     </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
