@@ -9,7 +9,7 @@ namespace WS_EUREKA_RESTFUL_DOTNET.Controllers
 {
     public class EurekaController : Controller
     {
-        private eurekabankEntities _context = new eurekabankEntities();
+        private eurekabankEntities1 _context = new eurekabankEntities1();
 
         [HttpGet]
         public JsonResult LeerMovimientos(string cuenta)
@@ -122,7 +122,7 @@ namespace WS_EUREKA_RESTFUL_DOTNET.Controllers
 
         public void RegistrarMovimiento(Movimiento movimiento)
         {
-            using (eurekabankEntities bd = new eurekabankEntities())
+            using (eurekabankEntities1 bd = new eurekabankEntities1())
             {
                 var nuevoMovimiento = new Movimiento
                 {
@@ -149,7 +149,7 @@ namespace WS_EUREKA_RESTFUL_DOTNET.Controllers
 
         public bool ActualizarSaldoCuenta(string codigoCuenta, decimal valorMovimiento)
         {
-            using (var bd = new eurekabankEntities())
+            using (var bd = new eurekabankEntities1())
             {
                 var cuenta = bd.Cuentas.SingleOrDefault(c => c.chr_cuencodigo == codigoCuenta);
 
@@ -175,7 +175,7 @@ namespace WS_EUREKA_RESTFUL_DOTNET.Controllers
 
         public Cuenta ObtenerCuentaPorCodigo(string codigoCuenta)
         {
-            using (var bd = new eurekabankEntities())
+            using (var bd = new eurekabankEntities1())
             {
                 return bd.Cuentas.SingleOrDefault(c => c.chr_cuencodigo == codigoCuenta);
             }

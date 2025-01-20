@@ -135,25 +135,25 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Asignado.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CargoMantenimiento.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cliente.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Contador.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CostoMovimiento.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cuenta.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Empleado.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EurekabankEntities.Context.cs">
       <AutoGen>True</AutoGen>
@@ -170,24 +170,39 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EurekabankEntities.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\EurekaCloud.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EurekaCloud.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EurekaCloud.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EurekaCloud.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EurekaCloud.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\InteresMensual.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Moneda.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Movimiento.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MovimientoRequest.cs" />
     <Compile Include="Models\Parametro.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Sucursal.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoMovimiento.cs">
-      <DependentUpon>EurekabankEntities.tt</DependentUpon>
+      <DependentUpon>EurekaCloud.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -221,6 +236,16 @@
       <DependentUpon>EurekabankEntities.edmx</DependentUpon>
       <LastGenOutput>EurekabankEntities.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\EurekaCloud.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EurekaCloud.edmx</DependentUpon>
+      <LastGenOutput>EurekaCloud.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EurekaCloud.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EurekaCloud.edmx</DependentUpon>
+      <LastGenOutput>EurekaCloud.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -233,6 +258,13 @@
     </EntityDeploy>
     <Content Include="Models\EurekabankEntities.edmx.diagram">
       <DependentUpon>EurekabankEntities.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\EurekaCloud.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EurekaCloud.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EurekaCloud.edmx.diagram">
+      <DependentUpon>EurekaCloud.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
